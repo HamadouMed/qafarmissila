@@ -50,8 +50,6 @@ let debut = 0;
 let nombreesProverbesAffichage = 9;
 
 let divProverbes = document.querySelector('#divProverbes');
-/*let btnNext = document.querySelector('#next');
-let btnPrev = document.querySelector('#prev');*/
 
 function afficherProverbes() { 
   let listDivProverbes = '';
@@ -60,9 +58,9 @@ function afficherProverbes() {
       listDivProverbes += `
       <div class="col">
       <div class="card shadow-sm">
-        <img src="afar.jpg" width="100%" height="225" class="rounded mx-auto d-block" alt="...">
+        <!--<img src="afar.jpg" width="100%" height="225" class="rounded mx-auto d-block" alt="...">-->
         <div class="card-body">
-          <p class="card-text display-6"><em>"${monTableauProverbesAfar[i].text}"</em></p>
+          <p class="card-text display-6 text-center" style="font-family:Segoe Print; font-style:normal;">"${monTableauProverbesAfar[i].text}"</p>
           <div class="d-flex justify-content-between align-items-center">
             <div class="btn-group">
               <button type="button" class="btn btn-sm btn-outline-secondary" id="jaime${i}" onclick="addLikeAnUpdateUI(${i}, ${monTableauProverbesAfar[i].likes})"><i class="bi bi-heart-fill"></i> J'aime ${monTableauProverbesAfar[i].likes}</button>
