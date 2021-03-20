@@ -65,7 +65,10 @@ function afficherProverbes() {
           <p class="card-text">"${monTableauProverbesAfar[i].text}"</p>
           <div class="d-flex justify-content-between align-items-center">
             <div class="btn-group">
-              <button type="button" class="btn btn-sm btn-outline-secondary" id="jaime${i}" onclick="addLikeAnUpdateUI(${i}, ${monTableauProverbesAfar[i].likes})">J'aime ${monTableauProverbesAfar[i].likes}</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary" id="jaime${i}" onclick="addLikeAnUpdateUI(${i}, ${monTableauProverbesAfar[i].likes})"><i class="bi bi-heart-fill"></i> J'aime ${monTableauProverbesAfar[i].likes}</button>
+            </div>
+            <div class="btn-group">
+              <button type="button" class="btn btn-sm btn-outline-secondary"><i class="fa fa-share"></i>Partager</button>
             </div>
           </div>
         </div>
@@ -96,5 +99,5 @@ function prev() {
 function addLikeAnUpdateUI(index, nbLikes) {
   nbLikes++;
   let monbtnJaime = document.querySelector(`#jaime${index}`);
-  monbtnJaime.textContent = `J'aime ${nbLikes}`;
+  monbtnJaime.innerHTML = `<i class="bi bi-heart-fill"></i> J'aime ${nbLikes}`;
 }
