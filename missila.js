@@ -823,19 +823,14 @@ let monTableauProverbesAfar = [
   {
     "texte": "\r\nMeqem maxco temberek yaameenih",
     "likes": 182
-  },
-  {
-    "texte": "",
-    "likes": 45
-  },
-  {
-    "likes": 112
   }
 ]
 let debut = 0;
 let nombreesProverbesAffichage = 12;
 
 let divProverbes = document.querySelector('#divProverbes');
+
+document.querySelector('#nbMissila').textContent = `${monTableauProverbesAfar.length} missila en ligne`;
 
 function afficherProverbes() { 
   let listDivProverbes = '';
