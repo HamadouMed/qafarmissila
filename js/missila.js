@@ -847,10 +847,7 @@ function afficherProverbes() {
               <button type="button" class="btn btn-sm btn-outline-secondary" id="jaime${i}" onclick="addLikeAnUpdateUI(${i}, ${monTableauProverbesAfar[i].likes})"><i class="bi bi-heart-fill"></i> J'aime ${monTableauProverbesAfar[i].likes}</button>
             </div>
             <div class="btn-group">
-              <button type="button" class="btn btn-sm btn-outline-secondary"  onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href), 
-                'facebook-share-dialog', 
-                'width=626,height=436'); 
-              return false;"><i class="fa fa-share"></i> Partager sur FB</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary"  onclick=""><i class="fa fa-share"></i> Partager sur FB</button>
             </div>
           </div>
         </div>
@@ -882,4 +879,8 @@ function addLikeAnUpdateUI(index, nbLikes) {
   nbLikes++;
   let monbtnJaime = document.querySelector(`#jaime${index}`);
   monbtnJaime.innerHTML = `<i class="bi bi-heart-fill"></i> J'aime ${nbLikes}`;
+}
+
+
+function fbShare(descr, image) {
 }
