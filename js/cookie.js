@@ -25,6 +25,8 @@ function eraseCookie(name) {
 function cookieConsent() {
   if (!getCookie('allowCookies')) {
       $('.toast').toast('show')
+  } else {
+    $('.toast').toast('show').remove();
   }
 }
 

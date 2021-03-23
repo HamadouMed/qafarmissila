@@ -838,7 +838,7 @@ function afficherProverbes() {
     if (i<monTableauProverbesAfar.length) {
       listDivProverbes += `
       <div class="col">
-      <div class="card shadow-sm">
+      <div class="card shadow-sm h-100">
         <!--<img src="afar.jpg" width="100%" height="225" class="rounded mx-auto d-block" alt="...">-->
         <div class="card-body">
           <p class="card-text display-6 text-center" style="font-style:normal;">"${monTableauProverbesAfar[i].texte}"</p>
@@ -879,8 +879,4 @@ function addLikeAnUpdateUI(index, nbLikes) {
   nbLikes++;
   let monbtnJaime = document.querySelector(`#jaime${index}`);
   monbtnJaime.innerHTML = `<i class="bi bi-heart-fill"></i> J'aime ${nbLikes}`;
-}
-
-
-function fbShare(descr, image) {
 }
