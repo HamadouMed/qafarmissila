@@ -840,7 +840,7 @@ function afficherProverbes() {
         <tr>
             <th scope="row">${i}</th>
             <td id="${i}">"${monTableauProverbesAfar[i].texte}"</td>
-            <td><a onclick="copierProverbe(${i})" id="copier">Copier</a></td>
+            <td><a onclick="copierProverbe(${i})" id="copier">Copier <i class="fa fa-copy"></i></a></td>
         </tr>
       `
     }
@@ -864,17 +864,11 @@ function prev() {
   }
 }
 
-// function addLikeAnUpdateUI(index, nbLikes) {
-//   nbLikes++;
-//   let monbtnJaime = document.querySelector(`#jaime${index}`);
-//   monbtnJaime.innerHTML = `<i class="bi bi-heart-fill"></i> J'aime ${nbLikes}`;
-// }
-
 function copierProverbe(id) {
   let element = document.getElementById(id);
-  let modal = document.getElementById("myModal");
-  let span = document.getElementsByClassName("close")[0];
-  let p = document.getElementById("test");
+  let modal = document.getElementById('myModal');
+  let span = document.getElementsByClassName('close')[0];
+  let p = document.getElementById('modalCopier');
 
   span.onclick = function() {
     modal.style.display = "none";
@@ -884,7 +878,6 @@ function copierProverbe(id) {
       modal.style.display = "none";
     }
   }
-
   let range, selection, worked;
 
   if (document.body.createTextRange) {

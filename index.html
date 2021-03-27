@@ -15,106 +15,84 @@
   </head>
   <body>
 <header>
-  <div class="collapse bg-light" id="navbarHeader">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-8 col-md-7 py-4">
-          <h4 class="text-dark">A propos</h4>
-          <p class="text-muted">Ce site internet à pour but de faire decouvrire des proverbes afar (Qafar missila). Partager le site autour de vous. Merci</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="navbar navbar-dark shadow-sm" style="background-color: #7a4189;">
+  <div class="navbar navbar-dark shadow-sm" style="background-color: #563d7c;">
     <div class="container">
       <a href="index.html" class="navbar-brand d-flex align-items-center text-uppercase">
         <strong>Qafar Missila</strong>
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
     </div>
   </div>
 </header>
 
 <main>
   <section class="py-5 text-center container">
-    <div class="row bg-light">
+    <div class="row">
       <div class="col-lg-6 col-md-8 mx-auto">
         <h1 class="fw-light">Qafar missila</h1>
         <p class="lead text-muted">
           <b>Afar</b> : Tama sitil sinih xayosnam Qafar missilite, taxigen missila ele getonuy, axige waytanam kadu ele geton.
         </p>
-        <p class="lead text-muted">
-          <b>Français</b> : Découvrez et faites nous découvrir des nouveaux proverbes afar chaque jour !
-          Envoyez-nous par mail les proverbes que vous connaissez et nous les ajouterons sur le site, si elles n'y sont pas déjà.
-        </p>
         <p>
-          <a href="https://www.facebook.com/hamadou.helafita" class="btn btn-primary my-2"> <i class="fa fa-facebook"></i> Notre page Facebook</a>
+          <a href="https://www.facebook.com/qaffarmissila" class="btn btn-primary my-2" target="_blank"> <i class="fa fa-facebook"></i> Notre page Facebook</a>
         </p>
         <h1 id="nbMissila" class="fw-light">Nombres de proverbes en ligne</h1>
       </div>
     </div>
   </section>
-  <div class="album py-5 bg-light">
     <div class="container">
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 bg-light" id="divProverbes">
+      <div id="divProverbes">
         <table class="table table-borderless table-hover table-striped">
-          <caption>Liste des proverbes</caption>
+          <caption>
+            <a id="prev" class="previous mt-1 round" onclick="prev()">&#8249;</a>
+            <a id="next" class="next mt-1 round" onclick="next()">&#8250;</a>
+          </caption>
           <thead>
             <tr>
-              <th scope="col">Numéro</th>
-              <th scope="col">Proverbe</th>
+              <th scope="col" class="text-white">Numéro</th>
+              <th scope="col" class="text-white">Proverbe</th>
             </tr>
           </thead>
           <tbody>
-
+            <!-- Ici -->
           </tbody>
         </table>
       </div>
-      <a id="prev" class="previous mt-1" onclick="prev()">&laquo; Précedent</a>
-      <a id="next" class="next mt-1" onclick="next()">Suivant &raquo;</a>
     </div>
-  </div>
 
-  <!-- cookie warning toast -->
-<div class="fixed-bottom p-4">
-  <div class="toast bg-dark text-white w-100 mw-100" role="alert" data-autohide="false">
-      <div class="toast-body d-flex flex-column">
-          <h4>Cookie</h4>
-          <p>
-            En cliquant sur « Accepter », vous acceptez de stocker des cookies sur votre appareil afin d'améliorer votre navigation sur le site, d'analyser votre utilisation du site et d'améliorer nos actions marketing.
-            <a href="conditionsgenerales.html">
-             Politique de confidentialités
-            </a>
-          </p>
-          <div class="ml-auto">
-              <button type="button" class="btn btn-outline-light" style="float: right; margin-left: 5px;" id="btnDeny">
-                  Refuser
-              </button>
-              <button type="button" class="btn btn-light" style="float: right;" id="btnAccept">
-                  Accepter
-              </button>
+    <!-- cookie warning toast -->
+    <div class="fixed-bottom p-4">
+      <div class="toast bg-dark text-white w-100 mw-100" role="alert" data-autohide="false">
+          <div class="toast-body d-flex flex-column">
+              <h4>Cookie</h4>
+              <p>
+                En cliquant sur « Accepter », vous acceptez de stocker des cookies sur votre appareil afin d'améliorer votre navigation sur le site, d'analyser votre utilisation du site et d'améliorer nos actions marketing.
+                <!--<a href="conditionsgenerales.html">
+                Politique de confidentialités
+                </a>-->
+              </p>
+              <div class="ml-auto">
+                  <button type="button" class="btn btn-outline-light" style="float: right; margin-left: 5px;" id="btnDeny">
+                      Refuser
+                  </button>
+                  <button type="button" class="btn btn-light" style="float: right;" id="btnAccept">
+                      Accepter
+                  </button>
+              </div>
           </div>
       </div>
-  </div>
-</div>
-
-<!-- The Modal -->
-<div id="myModal" class="modal">
-  <div class="modal-content">
-    <span class="close">Fermer &times;</span>
-    <p id="test">Some text in the Modal..</p>
-  </div>
-</div>
+    </div>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close">Fermer &times;</span>
+        <p id="modalCopier"></p>
+      </div>
+    </div>
 </main>
 
-<footer class="py-5 text-white" style="background-color: #7a4189;">
+<footer class="py-2 text-white" style="background-color: #563d7c;">
   <div class="container">
-    <p class="float-end mb-1">
-      <a href="#">Haut de la page</a>
-    </p>
-    <p class="mb-1">Qafar Missila &copy; By Hamadou Mohamed</p>
+    <p class="mb-1">Qafar Missila &copy; By Hamadou MOHAMED</p>
   </div>
 </footer>
 
