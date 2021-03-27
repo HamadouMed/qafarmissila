@@ -828,7 +828,7 @@ let monTableauProverbesAfar = [
 let debut = 0;
 let nombreesProverbesAffichage = 12;
 
-let divProverbes = document.querySelector('#divProverbes');
+let divProverbes = document.querySelector('tbody');
 
 document.querySelector('#nbMissila').textContent = `${monTableauProverbesAfar.length} missila en ligne`;
 
@@ -837,22 +837,11 @@ function afficherProverbes() {
   for (let i = debut; i < debut + nombreesProverbesAffichage; i++) {
     if (i<monTableauProverbesAfar.length) {
       listDivProverbes += `
-      <div class="col">
-      <div class="card shadow-sm h-100">
-        <!--<img src="afar.jpg" width="100%" height="225" class="rounded mx-auto d-block" alt="...">-->
-        <div class="card-body">
-          <p class="card-text display-6 text-center" style="font-style:normal;">"${monTableauProverbesAfar[i].texte}"</p>
-          <div class="d-flex justify-content-between align-items-center">
-            <div class="btn-group">
-              <button type="button" class="btn btn-sm btn-outline-secondary" id="jaime${i}" onclick="addLikeAnUpdateUI(${i}, ${monTableauProverbesAfar[i].likes})"><i class="bi bi-heart-fill"></i> J'aime ${monTableauProverbesAfar[i].likes}</button>
-            </div>
-            <div class="btn-group">
-              <button type="button" class="btn btn-sm btn-outline-secondary"  onclick=""><i class="fa fa-share"></i> Partager sur FB</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+        <tr>
+            <th scope="row">${i}</th>
+            <td id="${i}">"${monTableauProverbesAfar[i].texte}"</td>
+            <td><a onclick="copierProverbe(${i})" id="copier">Copier</a></td>
+        </tr>
       `
     }
   }
@@ -875,8 +864,47 @@ function prev() {
   }
 }
 
-function addLikeAnUpdateUI(index, nbLikes) {
-  nbLikes++;
-  let monbtnJaime = document.querySelector(`#jaime${index}`);
-  monbtnJaime.innerHTML = `<i class="bi bi-heart-fill"></i> J'aime ${nbLikes}`;
+// function addLikeAnUpdateUI(index, nbLikes) {
+//   nbLikes++;
+//   let monbtnJaime = document.querySelector(`#jaime${index}`);
+//   monbtnJaime.innerHTML = `<i class="bi bi-heart-fill"></i> J'aime ${nbLikes}`;
+// }
+
+function copierProverbe(id) {
+  let element = document.getElementById(id);
+  let modal = document.getElementById("myModal");
+  let span = document.getElementsByClassName("close")[0];
+  let p = document.getElementById("test");
+
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+
+  let range, selection, worked;
+
+  if (document.body.createTextRange) {
+    range = document.body.createTextRange();
+    range.moveToElementText(element);
+    range.select();
+  } else if (window.getSelection) {
+    selection = window.getSelection();        
+    range = document.createRange();
+    range.selectNodeContents(element);
+    selection.removeAllRanges();
+    selection.addRange(range);
+  }
+  
+  try {
+    document.execCommand('copy');
+    modal.style.display = "block";
+    p.textContent = `Vous avez copié : ${element.textContent}`
+  }
+  catch (err) {
+    p.textContent = "Désolé une erreur s'est produite pendant la copie !";
+  }
 }

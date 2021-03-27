@@ -38,47 +38,6 @@
 </header>
 
 <main>
-  <!--Begin Modal Window--> 
-  <div class="modal fade left" id="myModal"> 
-    <div class="modal-dialog"> 
-      <div class="modal-content"> 
-        <div class="modal-header"> 
-          <h3 class="pull-left no-margin">Formulaire de contact</h3>
-          <button type="button" class="close btn" data-dismiss="modal" title="Close"><span class="glyphicon glyphicon-remove">Fermer</span>
-          </button> 
-        </div> 
-        <div class="modal-body">
-          <form class="form-horizontal" role="form" method="post" action="form_to_email_script.php "> 
-            <div class="form-group">
-              <label for="exampleFormControlInput1">Votre nom</label>
-              <input type="text" class="form-control" id="nom" placeholder="Votre nom ici">
-            </div>
-            <div class="form-group">
-              <label for="exampleFormControlSelect1">Votre adresse mail</label>
-              <input type="email" class="form-control" id="email" placeholder="name@example.com">
-            </div>
-            <div class="form-group">
-              <label for="exampleFormControlTextarea1">Votre message</label>
-              <textarea class="form-control" id="sujet" rows="10"></textarea>
-            </div>
-            <div class="form-group"> 
-              <div class="col-sm-offset-3 col-sm-6 col-sm-offset-3"> 
-              <button type="button" class="btn btn-primary my-2" id="envoyerMail" name="submit">Envoyer le mail</button> 
-              </div> 
-            </div> 
-          </form>
-        </div>
-        <div class="modal-footer"> 
-          <div class="col-xs-10 pull-left text-left text-muted"> 
-            <small><strong><i class="bi bi-exclamation-triangle alert"></i> Politique de confidentialité :</strong>
-              Ne pas saisir vos données personnelles sensibles dans ce formulaire mises à part votre nom et adresse mail. Merci</small> 
-          </div> 
-        </div> 
-      </div> 
-    </div> 
-  </div>
-
-
   <section class="py-5 text-center container">
     <div class="row bg-light">
       <div class="col-lg-6 col-md-8 mx-auto">
@@ -92,7 +51,6 @@
         </p>
         <p>
           <a href="https://www.facebook.com/hamadou.helafita" class="btn btn-primary my-2"> <i class="fa fa-facebook"></i> Notre page Facebook</a>
-          <button type="button" class="btn btn-secondary my-2" data-toggle="modal" data-target="#myModal"><i class="bi bi-envelope-fill"></i> Nous contacter</button>
         </p>
         <h1 id="nbMissila" class="fw-light">Nombres de proverbes en ligne</h1>
       </div>
@@ -101,7 +59,18 @@
   <div class="album py-5 bg-light">
     <div class="container">
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 bg-light" id="divProverbes">
-        <!-- Tout se passe ici -->
+        <table class="table table-borderless table-hover table-striped">
+          <caption>Liste des proverbes</caption>
+          <thead>
+            <tr>
+              <th scope="col">Numéro</th>
+              <th scope="col">Proverbe</th>
+            </tr>
+          </thead>
+          <tbody>
+
+          </tbody>
+        </table>
       </div>
       <a id="prev" class="previous mt-1" onclick="prev()">&laquo; Précedent</a>
       <a id="next" class="next mt-1" onclick="next()">Suivant &raquo;</a>
@@ -128,6 +97,14 @@
               </button>
           </div>
       </div>
+  </div>
+</div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close">Fermer &times;</span>
+    <p id="test">Some text in the Modal..</p>
   </div>
 </div>
 </main>
